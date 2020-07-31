@@ -3,16 +3,14 @@ import setuptools
 
 
 setuptools.setup(
-    name='jsonpath-ng',
+    name='e2e.pca-jsonpath-ng',
     version='1.5.1',
     description=(
-        'A final implementation of JSONPath for Python that aims to be ' 
-        'standard compliant, including arithmetic and binary comparison '
-        'operators and providing clear AST for metaprogramming.'
+        'Fork from https://github.com/jsonpath-ng v1.5.1 to fix filtering with None'
     ),
     author='Tomas Aparicio',
     author_email='tomas@aparicio.me',
-    url='https://github.com/h2non/jsonpath-ng',
+    url='https://github.com/trilogy-group/jsonpath-ng',
     license='Apache 2.0',
     long_description=io.open('README.rst', encoding='utf-8').read(),
     packages=['jsonpath_ng', 'jsonpath_ng.bin', 'jsonpath_ng.ext'],

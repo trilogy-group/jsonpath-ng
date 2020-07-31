@@ -45,6 +45,7 @@ class ExtendedJsonPathLexer(lexer.JsonPathLexer):
         # NOTE(sileht): This fixes the ID expression to be
         # able to use @ for `This` like any json query
         t.type = self.reserved_words.get(t.value, 'ID')
+        t.value = None if t.value == 'None' else t.value
         return t
 
     def t_FLOAT(self, t):
