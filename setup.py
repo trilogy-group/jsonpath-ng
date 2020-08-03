@@ -1,10 +1,20 @@
 import io
+import subprocess
+from datetime import datetime, timezone
+
 import setuptools
+
+
+def get_version():
+    result = subprocess.run(['git', 'show', '-s', '--format=%ct', 'HEAD'], stdout=subprocess.PIPE)
+    committed_date = datetime.fromtimestamp(int(result.stdout)).astimezone(timezone.utc)
+    committed_date_str = committed_date.strftime('%Y%m%d%H%M%S')
+    return f'1.5.2b{committed_date_str}'
 
 
 setuptools.setup(
     name='e2e.pca-jsonpath-ng',
-    version='1.5.1',
+    version=get_version(),
     description=(
         'Fork from https://github.com/jsonpath-ng v1.5.1 to fix filtering with None'
     ),
