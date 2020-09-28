@@ -100,7 +100,8 @@ class Keys(JSONPath):
     def find(self, datum):
         datum = DatumInContext.wrap(datum)
         try:
-            value = datum.value.keys()
+            value = []
+            value.extend(datum.value.keys())
         except Exception as e:
             return []
         else:
